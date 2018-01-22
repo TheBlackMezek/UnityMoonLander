@@ -2519,6 +2519,65 @@ Prefab:
       propertyPath: maxFuel
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 1397502981908022, guid: ce663389a5a8e794c9e54a773165c38c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: randomSeed
+      value: 197985942
+      objectReference: {fileID: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: ShapeModule.randomDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: ShapeModule.m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: ShapeModule.angle
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: VelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: VelocityModule.y.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: VelocityModule.z.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: InheritVelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198169611470924686, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce663389a5a8e794c9e54a773165c38c, type: 2}
   m_IsPrefabParent: 0

@@ -40,33 +40,11 @@ public class LanderController : MonoBehaviour {
     private void FixedUpdate()
     {
         Vector3 rotVec = Vector3.zero;
-
-        if(Input.GetKey(KeyCode.Q))
-        {
-            rotVec += new Vector3(0, -rotationAmt, 0);
-        }
-        if (Input.GetKey(KeyCode.E))
-        {
-            rotVec += new Vector3(0, rotationAmt, 0);
-        }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            rotVec += new Vector3(rotationAmt, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            rotVec += new Vector3(-rotationAmt, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            rotVec += new Vector3(0, 0, rotationAmt);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rotVec += new Vector3(0, 0, -rotationAmt);
-        }
+        
+        rotVec += new Vector3(0, Input.GetAxis("Yaw"), 0);
+        rotVec += new Vector3(Input.GetAxis("Pitch"), 0, 0);
+        rotVec += new Vector3(0, 0, Input.GetAxis("Roll"));
+        
 
         if(rotVec != Vector3.zero)
         {
@@ -74,12 +52,14 @@ public class LanderController : MonoBehaviour {
         }
 
 
-        
-        if(Input.GetKey(KeyCode.Space) && fuel != 0)
+
+        float thrusterInput = Input.GetAxis("Thruster");
+
+        if (thrusterInput > 0 && fuel != 0)
         {
             Vector3 forceVec = Vector3.zero;
             
-            forceVec += transform.up * thrustrForce * Time.fixedDeltaTime;
+            forceVec += transform.up * thrusterInput * thrustrForce * Time.fixedDeltaTime;
             particles.SetActive(true);
 
             fuel -= thrustFuelCost * Time.fixedDeltaTime;
