@@ -105,6 +105,11 @@ public class LanderController : MonoBehaviour {
             GameOver("Successful landing", "Score: " + (int)(fuel + currentPad.landingScore));
         }
         safeLegs = 0;
+
+        if(transform.position.y < 0)
+        {
+            GameOver("Left landing area", "Score: 0");
+        }
     }
 
     public void OnLegCollision(Collider other)
