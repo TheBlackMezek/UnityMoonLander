@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LanderController : MonoBehaviour {
 
@@ -8,10 +9,23 @@ public class LanderController : MonoBehaviour {
     public float thrustrForce = 5.0f;
     public float rotationAmt = 1.0f;
 
+    public float maxFuel = 100.0f;
+    public float thrustFuelCost = 1.0f;
+
     public Rigidbody body;
     public GameObject particles;
+    public Image fuelBar;
 
 
+    private float fuel;
+
+
+
+
+    private void Start()
+    {
+        fuel = maxFuel;
+    }
 
     private void FixedUpdate()
     {
@@ -49,10 +63,18 @@ public class LanderController : MonoBehaviour {
 
 
         Vector3 forceVec = Vector3.down * gravityForce * Time.fixedDeltaTime;
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Space) && fuel != 0)
         {
             forceVec += transform.up * thrustrForce * Time.fixedDeltaTime;
             particles.SetActive(true);
+
+            fuel -= thrustFuelCost * Time.fixedDeltaTime;
+            if(fuel < 0)
+            {
+                fuel = 0;
+            }
+
+            fuelBar.fillAmount = fuel / maxFuel;
         }
         else
         {
@@ -60,6 +82,13 @@ public class LanderController : MonoBehaviour {
         }
 
         body.AddForce(forceVec);
+    }
+
+
+
+    public float GetFuel()
+    {
+        return fuel;
     }
 
 }
