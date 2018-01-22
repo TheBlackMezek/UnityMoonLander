@@ -11,13 +11,18 @@ public class LanderController : MonoBehaviour {
 
     public float maxFuel = 100.0f;
     public float thrustFuelCost = 1.0f;
+    public float crashSpeed = 10.0f;
 
     public Rigidbody body;
     public GameObject particles;
     public Image fuelBar;
+    public GameObject gameOverPanel;
+    public Text crashSuccessText;
+    public Text scoreText;
 
 
     private float fuel;
+    private float prevVel = 0;
 
 
 
@@ -82,6 +87,40 @@ public class LanderController : MonoBehaviour {
         }
 
         body.AddForce(forceVec);
+        prevVel = body.velocity.magnitude;
+    }
+
+    public void OnLegCollision(Collider other)
+    {
+        LandingPad pad = other.gameObject.GetComponent<LandingPad>();
+        Debug.Log(transform.rotation.eulerAngles);
+        if (prevVel >= crashSpeed)
+        {
+            GameOver("Crashed", "Score: 0");
+        }
+        else if (pad)
+        {
+            GameOver("Successful landing", "Score: " + (int)(fuel + pad.landingScore));
+
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (prevVel >= crashSpeed)
+        {
+            GameOver("Crashed", "Score: 0");
+        }
+    }
+
+    private void GameOver(string cstext, string scoretext)
+    {
+        gameOverPanel.SetActive(true);
+        crashSuccessText.text = cstext;
+        scoreText.text = scoretext;
+        this.enabled = false;
+        Destroy(body);
+        particles.SetActive(false);
     }
 
 
