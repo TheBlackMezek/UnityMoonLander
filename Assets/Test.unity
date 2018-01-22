@@ -4004,6 +4004,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRotationSpeed: 10
   cameraDist: 10
+  cameraZoomSpeed: 10
+  maxCamZoom: 20
+  minCamZoom: 2
   maxCamAngleX: 90
   minCamAngleX: -45
   lander: {fileID: 413325574}

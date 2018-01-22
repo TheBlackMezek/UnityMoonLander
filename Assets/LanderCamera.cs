@@ -6,7 +6,10 @@ public class LanderCamera : MonoBehaviour {
 
     public float cameraRotationSpeed = 1.0f;
     public float cameraDist = 5.0f;
+    public float cameraZoomSpeed = 1.0f;
 
+    public float maxCamZoom = 10.0f;
+    public float minCamZoom = 1.0f;
     public float maxCamAngleX = 90.0f;
     public float minCamAngleX = 0.0f;
 
@@ -29,6 +32,9 @@ public class LanderCamera : MonoBehaviour {
             
             camRot.x = Mathf.Clamp(camRot.x, minCamAngleX, maxCamAngleX);
         }
+
+        cameraDist += -Input.GetAxis("Mouse ScrollWheel") * cameraZoomSpeed;
+        cameraDist = Mathf.Clamp(cameraDist, minCamZoom, maxCamZoom);
 
         transform.eulerAngles = camRot;
         transform.position += -transform.forward * cameraDist;
