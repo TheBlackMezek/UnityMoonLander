@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LanderLegs : MonoBehaviour {
+public class LanderHead : MonoBehaviour {
 
     public LanderController lander;
 
-    
 
-    private void OnTriggerStay(Collider other)
+
+    private void OnTriggerEnter(Collider other)
     {
-        lander.OnLegCollision(other);
+        lander.OnHeadCollision(other);
     }
 
 }

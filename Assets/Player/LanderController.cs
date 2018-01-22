@@ -78,7 +78,7 @@ public class LanderController : MonoBehaviour {
         if(Input.GetKey(KeyCode.Space) && fuel != 0)
         {
             Vector3 forceVec = Vector3.zero;
-
+            
             forceVec += transform.up * thrustrForce * Time.fixedDeltaTime;
             particles.SetActive(true);
 
@@ -111,20 +111,20 @@ public class LanderController : MonoBehaviour {
     {
         LandingPad pad = other.gameObject.GetComponent<LandingPad>();
         
-        if (prevVel >= crashSpeed)
+        if (prevVel >= crashSpeed || !pad)
         {
             GameOver("Crashed", "Score: 0");
         }
-        else if (pad)
+        else
         {
             safeLegs += 1;
             currentPad = pad;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnHeadCollision(Collider other)
     {
-        if (prevVel >= crashSpeed)
+        if(other.transform.parent != transform)
         {
             GameOver("Crashed", "Score: 0");
         }
