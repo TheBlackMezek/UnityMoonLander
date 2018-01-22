@@ -26,12 +26,15 @@ public class LanderController : MonoBehaviour {
     private int safeLegs = 0;
     private LandingPad currentPad = null;
 
+    private bool shouldRotate = false;
+
 
 
 
     private void Start()
     {
         fuel = maxFuel;
+        Physics.gravity = new Vector3(0, -gravityForce, 0);
     }
 
     private void FixedUpdate()
@@ -65,13 +68,17 @@ public class LanderController : MonoBehaviour {
             rotVec += new Vector3(0, 0, -rotationAmt);
         }
 
-        transform.Rotate(rotVec);
+        if(rotVec != Vector3.zero)
+        {
+            transform.Rotate(rotVec);
+        }
 
 
-
-        Vector3 forceVec = Vector3.down * gravityForce * Time.fixedDeltaTime;
+        
         if(Input.GetKey(KeyCode.Space) && fuel != 0)
         {
+            Vector3 forceVec = Vector3.zero;
+
             forceVec += transform.up * thrustrForce * Time.fixedDeltaTime;
             particles.SetActive(true);
 
@@ -82,13 +89,14 @@ public class LanderController : MonoBehaviour {
             }
 
             fuelBar.fillAmount = fuel / maxFuel;
+
+            body.AddForce(forceVec);
         }
         else
         {
             particles.SetActive(false);
         }
 
-        body.AddForce(forceVec);
         prevVel = body.velocity.magnitude;
 
         
