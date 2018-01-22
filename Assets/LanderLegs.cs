@@ -9,7 +9,9 @@ public class LanderLegs : MonoBehaviour {
 
     
 
-    private void OnTriggerEnter(Collider other)
+    
+
+    private void OnTriggerStay(Collider other)
     {
         lander.OnLegCollision(other);
     }

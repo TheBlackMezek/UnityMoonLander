@@ -23,6 +23,8 @@ public class LanderController : MonoBehaviour {
 
     private float fuel;
     private float prevVel = 0;
+    private int safeLegs = 0;
+    private LandingPad currentPad = null;
 
 
 
@@ -88,20 +90,27 @@ public class LanderController : MonoBehaviour {
 
         body.AddForce(forceVec);
         prevVel = body.velocity.magnitude;
+
+        
+        if(safeLegs == 4)
+        {
+            GameOver("Successful landing", "Score: " + (int)(fuel + currentPad.landingScore));
+        }
+        safeLegs = 0;
     }
 
     public void OnLegCollision(Collider other)
     {
         LandingPad pad = other.gameObject.GetComponent<LandingPad>();
-        Debug.Log(transform.rotation.eulerAngles);
+        
         if (prevVel >= crashSpeed)
         {
             GameOver("Crashed", "Score: 0");
         }
         else if (pad)
         {
-            GameOver("Successful landing", "Score: " + (int)(fuel + pad.landingScore));
-
+            safeLegs += 1;
+            currentPad = pad;
         }
     }
 
