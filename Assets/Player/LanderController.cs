@@ -17,6 +17,9 @@ public class LanderController : MonoBehaviour {
     public GameObject thrustParticles;
     public GameObject explodeParticles;
     public Image fuelBar;
+    public Image speedBar;
+    public Color speedColorGood;
+    public Color speedColorBad;
     public GameObject gameOverPanel;
     public Text crashSuccessText;
     public Text scoreText;
@@ -80,8 +83,19 @@ public class LanderController : MonoBehaviour {
 
         prevVel = body.velocity.magnitude;
 
-        
-        if(safeLegs == 4)
+        speedBar.fillAmount = body.velocity.magnitude / crashSpeed;
+        if(speedBar.fillAmount == 1)
+        {
+            speedBar.color = speedColorBad;
+        }
+        else
+        {
+            speedBar.color = speedColorGood;
+        }
+
+
+
+        if (safeLegs == 4)
         {
             GameOver("Successful landing", "Score: " + (int)(fuel + currentPad.landingScore), false);
         }

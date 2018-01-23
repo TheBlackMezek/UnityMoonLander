@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LanderCamera : MonoBehaviour {
 
+    public Vector3 startAngle = Vector3.zero;
+
     public float cameraRotationSpeed = 1.0f;
     public float cameraDist = 5.0f;
     public float cameraZoomSpeed = 1.0f;
@@ -17,8 +19,14 @@ public class LanderCamera : MonoBehaviour {
     public Camera myCamera;
 
 
-    private Vector3 camRot = Vector3.zero;
+    private Vector3 camRot;
 
+
+
+    private void Start()
+    {
+        camRot = startAngle;
+    }
 
     private void Update()
     {

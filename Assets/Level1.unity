@@ -3556,6 +3556,16 @@ Prefab:
       propertyPath: lander
       value: 
       objectReference: {fileID: 571797432}
+    - target: {fileID: 114490445250703256, guid: d5490a0db4c6bb04e9f7b7bfa470f872,
+        type: 2}
+      propertyPath: startAngle.y
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114490445250703256, guid: d5490a0db4c6bb04e9f7b7bfa470f872,
+        type: 2}
+      propertyPath: startAngle.x
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5490a0db4c6bb04e9f7b7bfa470f872, type: 2}
   m_IsPrefabParent: 0
@@ -7043,6 +7053,12 @@ GameObject:
   m_PrefabInternal: {fileID: 1186985363}
 --- !u!114 &1186985367 stripped
 MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114403678396397364, guid: c9d5a2e30b73db846aac9d7305e11ccf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1186985363}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1186985368 stripped
+MonoBehaviour:
   m_PrefabParentObject: {fileID: 114988393087743842, guid: c9d5a2e30b73db846aac9d7305e11ccf,
     type: 2}
   m_PrefabInternal: {fileID: 1186985363}
@@ -8030,6 +8046,41 @@ Prefab:
       propertyPath: thrustParticles
       value: 
       objectReference: {fileID: 1546604744}
+    - target: {fileID: 114155784295542916, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: speedBar
+      value: 
+      objectReference: {fileID: 1186985368}
+    - target: {fileID: 114155784295542916, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: speedColorGood.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114155784295542916, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: speedColorGood.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114155784295542916, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: speedColorGood.b
+      value: 0.37931013
+      objectReference: {fileID: 0}
+    - target: {fileID: 114155784295542916, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: speedColorBad.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114155784295542916, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: speedColorBad.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114155784295542916, guid: ce663389a5a8e794c9e54a773165c38c,
+        type: 2}
+      propertyPath: speedColorBad.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce663389a5a8e794c9e54a773165c38c, type: 2}
   m_IsPrefabParent: 0
