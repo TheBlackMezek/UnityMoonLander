@@ -883,6 +883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933c7f96cd9b020438a1ef4933804def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultCamControls: 1
   gravityForce: 1
   thrustrForce: 100
   rotationAmt: 1
@@ -900,6 +901,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 0}
   crashSuccessText: {fileID: 0}
   scoreText: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!114 &114208927445490012
 MonoBehaviour:
   m_ObjectHideFlags: 1

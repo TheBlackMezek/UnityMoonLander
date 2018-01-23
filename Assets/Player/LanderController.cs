@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class LanderController : MonoBehaviour {
 
+    [Range(0, 1)]
+    public int defaultCamControls = 0;
+
     public float gravityForce = 1.0f;
     public float thrustrForce = 5.0f;
     public float rotationAmt = 1.0f;
@@ -24,18 +27,21 @@ public class LanderController : MonoBehaviour {
     public GameObject gameOverPanel;
     public Text crashSuccessText;
     public Text scoreText;
+    public LanderCamera cam;
 
 
     private float fuel;
     private float prevVel = 0;
     private int safeLegs = 0;
     private LandingPad currentPad = null;
+    private int useCamRelativeControls;
 
 
 
 
     private void Start()
     {
+        useCamRelativeControls = PlayerPrefs.GetInt("UseCamRelativeControls", defaultCamControls);
         fuel = maxFuel;
         Physics.gravity = new Vector3(0, -gravityForce, 0);
     }
@@ -43,14 +49,21 @@ public class LanderController : MonoBehaviour {
     private void FixedUpdate()
     {
         Vector3 rotVec = Vector3.zero;
+        Vector3 rotMod = cam.camRot.normalized;
         
         rotVec += new Vector3(0, Input.GetAxis("Yaw"), 0);
         rotVec += new Vector3(Input.GetAxis("Pitch"), 0, 0);
         rotVec += new Vector3(0, 0, Input.GetAxis("Roll"));
+
         
 
         if(rotVec != Vector3.zero)
         {
+            if(useCamRelativeControls > 0)
+            {
+                rotVec = cam.transform.TransformVector(rotVec);
+            }
+
             transform.Rotate(rotVec);
         }
 

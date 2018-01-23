@@ -19,7 +19,7 @@ public class LanderCamera : MonoBehaviour {
     public Camera myCamera;
 
 
-    private Vector3 camRot;
+    public Vector3 camRot;
 
 
 
