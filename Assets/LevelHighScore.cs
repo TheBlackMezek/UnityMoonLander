@@ -37,7 +37,7 @@ public class LevelHighScore : MonoBehaviour {
         int[] highs = new int[maxScoresOnBoard];
         int max = 0;
         int idx;
-        for(int n = 0; n < maxScoresOnBoard; ++n)
+        for(int n = 0; n < maxScoresOnBoard && n < scores.Count; ++n)
         {
             max = scores[0];
             idx = 0;
