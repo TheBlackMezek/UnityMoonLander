@@ -19,20 +19,26 @@ Platform assembly: C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Mana
 Loading C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.182 seconds
+- Completed reload, in  0.173 seconds
 Platform assembly: C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3000x1920 at 0,-204
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.812646 ms
+UnloadTime: 1.123540 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 175c -> priority: 1 
-  Thread -> id: 2570 -> priority: 1 
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.061904 ms
+  Thread -> id: 260 -> priority: 1 
+  Thread -> id: 3018 -> priority: 1 
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.125618 ms
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 690.
-Total: 0.465344 ms (FindLiveObjects: 0.034701 ms CreateObjectMapping: 0.017066 ms MarkObjects: 0.249169 ms  DeleteObjects: 0.157580 ms)
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 522.
+Total: 0.471033 ms (FindLiveObjects: 0.031572 ms CreateObjectMapping: 0.014790 ms MarkObjects: 0.253720 ms  DeleteObjects: 0.162700 ms)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.571441 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 514.
+Total: 0.338199 ms (FindLiveObjects: 0.018773 ms CreateObjectMapping: 0.009670 ms MarkObjects: 0.183464 ms  DeleteObjects: 0.126007 ms)
 
