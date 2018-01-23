@@ -30,8 +30,6 @@ public class LanderController : MonoBehaviour {
     private int safeLegs = 0;
     private LandingPad currentPad = null;
 
-    private bool shouldRotate = false;
-
 
 
 
@@ -140,6 +138,7 @@ public class LanderController : MonoBehaviour {
         if(crashed)
         {
             explodeParticles.SetActive(true);
+            explodeParticles.transform.parent = null;
 
             Collider[] colliders = GetComponentsInChildren<Collider>();
             foreach (Collider c in colliders)
@@ -149,7 +148,7 @@ public class LanderController : MonoBehaviour {
 
                 if(!c.gameObject.GetComponent<Rigidbody>())
                 {
-                    Rigidbody b = c.gameObject.AddComponent<Rigidbody>();
+                    c.gameObject.AddComponent<Rigidbody>();
                 }
             }
         }
