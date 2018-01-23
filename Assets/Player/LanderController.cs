@@ -13,6 +13,7 @@ public class LanderController : MonoBehaviour {
     public float thrustFuelCost = 1.0f;
     public float crashSpeed = 10.0f;
 
+    public LevelHighScore highScoreScript;
     public Rigidbody body;
     public GameObject thrustParticles;
     public GameObject explodeParticles;
@@ -95,13 +96,13 @@ public class LanderController : MonoBehaviour {
 
         if (safeLegs == 4)
         {
-            GameOver("Successful landing", "Score: " + (int)(fuel + currentPad.landingScore), false);
+            GameOver("Successful landing", (int)(fuel + currentPad.landingScore), false);
         }
         safeLegs = 0;
 
         if(transform.position.y < 0)
         {
-            GameOver("Left landing area", "Score: 0", false);
+            GameOver("Left landing area", 0, false);
         }
     }
 
@@ -111,7 +112,7 @@ public class LanderController : MonoBehaviour {
         
         if (prevVel >= crashSpeed || !pad)
         {
-            GameOver("Crashed", "Score: 0", true);
+            GameOver("Crashed", 0, true);
         }
         else
         {
@@ -124,12 +125,14 @@ public class LanderController : MonoBehaviour {
     {
         if(other.transform.parent != transform)
         {
-            GameOver("Crashed", "Score: 0", true);
+            GameOver("Crashed", 0, true);
         }
     }
 
-    private void GameOver(string cstext, string scoretext, bool crashed)
+    private void GameOver(string cstext, int score, bool crashed)
     {
+        string scoretext = "Score: " + score;
+
         gameOverPanel.SetActive(true);
         crashSuccessText.text = cstext;
         scoreText.text = scoretext;
@@ -156,6 +159,10 @@ public class LanderController : MonoBehaviour {
         {
             Destroy(body);
         }
+
+        highScoreScript.AddHighScore(score);
+        highScoreScript.UpdateScoreboard();
+        highScoreScript.SaveScores();
 
         this.enabled = false;
     }
