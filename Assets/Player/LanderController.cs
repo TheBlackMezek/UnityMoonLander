@@ -14,7 +14,8 @@ public class LanderController : MonoBehaviour {
     public float crashSpeed = 10.0f;
 
     public Rigidbody body;
-    public GameObject particles;
+    public GameObject thrustParticles;
+    public GameObject explodeParticles;
     public Image fuelBar;
     public GameObject gameOverPanel;
     public Text crashSuccessText;
@@ -60,7 +61,7 @@ public class LanderController : MonoBehaviour {
             Vector3 forceVec = Vector3.zero;
             
             forceVec += transform.up * thrusterInput * thrustrForce * Time.fixedDeltaTime;
-            particles.SetActive(true);
+            thrustParticles.SetActive(true);
 
             fuel -= thrustFuelCost * Time.fixedDeltaTime;
             if(fuel < 0)
@@ -74,7 +75,7 @@ public class LanderController : MonoBehaviour {
         }
         else
         {
-            particles.SetActive(false);
+            thrustParticles.SetActive(false);
         }
 
         prevVel = body.velocity.magnitude;
@@ -82,13 +83,13 @@ public class LanderController : MonoBehaviour {
         
         if(safeLegs == 4)
         {
-            GameOver("Successful landing", "Score: " + (int)(fuel + currentPad.landingScore));
+            GameOver("Successful landing", "Score: " + (int)(fuel + currentPad.landingScore), false);
         }
         safeLegs = 0;
 
         if(transform.position.y < 0)
         {
-            GameOver("Left landing area", "Score: 0");
+            GameOver("Left landing area", "Score: 0", false);
         }
     }
 
@@ -98,7 +99,7 @@ public class LanderController : MonoBehaviour {
         
         if (prevVel >= crashSpeed || !pad)
         {
-            GameOver("Crashed", "Score: 0");
+            GameOver("Crashed", "Score: 0", true);
         }
         else
         {
@@ -111,18 +112,39 @@ public class LanderController : MonoBehaviour {
     {
         if(other.transform.parent != transform)
         {
-            GameOver("Crashed", "Score: 0");
+            GameOver("Crashed", "Score: 0", true);
         }
     }
 
-    private void GameOver(string cstext, string scoretext)
+    private void GameOver(string cstext, string scoretext, bool crashed)
     {
         gameOverPanel.SetActive(true);
         crashSuccessText.text = cstext;
         scoreText.text = scoretext;
+        thrustParticles.SetActive(false);
+
+        if(crashed)
+        {
+            explodeParticles.SetActive(true);
+
+            Collider[] colliders = GetComponentsInChildren<Collider>();
+            foreach (Collider c in colliders)
+            {
+                c.isTrigger = false;
+                c.transform.parent = null;
+
+                if(!c.gameObject.GetComponent<Rigidbody>())
+                {
+                    Rigidbody b = c.gameObject.AddComponent<Rigidbody>();
+                }
+            }
+        }
+        else
+        {
+            Destroy(body);
+        }
+
         this.enabled = false;
-        Destroy(body);
-        particles.SetActive(false);
     }
 
 
