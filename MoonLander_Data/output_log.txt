@@ -19,7 +19,7 @@ Platform assembly: C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Mana
 Loading C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.284 seconds
+- Completed reload, in  0.278 seconds
 Platform assembly: C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\s179069\Source\Repos\MoonLander\MoonLander_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3000x1920 at 0,-204
@@ -28,5 +28,5 @@ desktop: 1920x1080 60Hz; virtual: 3000x1920 at 0,-204
 <RI> Initialized touch support.
 UnloadTime: 0.783918 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2d44 -> priority: 1 
-  Thread -> id: 2194 -> priority: 1 
+  Thread -> id: 2244 -> priority: 1 
+  Thread -> id: 1988 -> priority: 1 
